@@ -41,3 +41,13 @@ We must specify the name and the data-type for all variables.
 
 ### Initialize Variable Example 2:
 >String my_var = "Santiago"
+
+---
+
+## CONSTANTS
+
+They play an important role for always-fixed "variables". <br>
+The way to to them is by adding "final" at the start of the statement.
+
+### Create Constant Example:
+>final double in_to_cm = 2.54;
