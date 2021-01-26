@@ -60,3 +60,18 @@ In Java, we can have multiple types of classes, both "predefined" and "own". <br
 Predefined classes are really useful for "main-stream" problems and solutions (like String, Math, Array, Thread, etc). <br>
 We can learn, search and look for classes in the Java-API.
 
+---
+
+## IMPORTS
+
+The main class (java.lang) is imported by default. However, when we want to use other classes, we 
+must specify that we "import" it with its specific name and the desired package/packages. <br>
+Remember to checkout when the methods are static or not (that will have an impact in the way we
+create and use the functionalities, by creating or not an object before).
+
+### Import Everything from Package:
+>import java.util.*;
+
+### Import Only Specific Class from Package:
+>import java.util.Scanner;
+
