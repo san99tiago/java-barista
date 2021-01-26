@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 // BASIC FOR LOOPS IN JAVA
 // Santiago Garcia Arango
 
