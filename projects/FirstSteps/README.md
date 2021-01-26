@@ -75,3 +75,21 @@ create and use the functionalities, by creating or not an object before).
 ### Import Only Specific Class from Package:
 >import java.util.Scanner;
 
+---
+
+## MATRICES
+
+Matrices are one of the most important element in every programming language. <br>
+In Java, we can specify matrices in multiple ways, and the context will determine the best alternative.
+
+### Numeric Matrix Example 1:
+>int [] my_matrix = new int[5]; <br>
+>my_matrix[0] = 1; <br>
+>my_matrix[1] = 1; <br>
+>my_matrix[2] = 2; <br>
+>my_matrix[3] = 3; <br>
+>my_matrix[4] = 5; <br>
+
+### Numeric Matrix Example 2:
+>int [] my_matrix = {1, 1, 2, 3, 5}; <br>
+
