@@ -51,3 +51,12 @@ The way to to them is by adding "final" at the start of the statement.
 
 ### Create Constant Example:
 >final double in_to_cm = 2.54;
+
+---
+
+## CLASSES
+
+In Java, we can have multiple types of classes, both "predefined" and "own". <br>
+Predefined classes are really useful for "main-stream" problems and solutions (like String, Math, Array, Thread, etc). <br>
+We can learn, search and look for classes in the Java-API.
+
