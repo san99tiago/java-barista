@@ -56,9 +56,26 @@ The way to to them is by adding "final" at the start of the statement.
 
 ## CLASSES
 
-In Java, we can have multiple types of classes, both "predefined" and "own". <br>
+In Java, we can have multiple types of classes, both "predefined" by libraries and our "own"classes. <br>
 Predefined classes are really useful for "main-stream" problems and solutions (like String, Math, Array, Thread, etc). <br>
-We can learn, search and look for classes in the Java-API.
+We can learn, search and look for classes in the Java-API.<br>
+Java is an Object-Oriented-Programming language, so working with classes is "mandatory".<br><br>
+
+It is important to follow conventions like:<br>
+--> Classes should always start with an upper-case letter.<br>
+--> The name of the Java file, should match the class name.<br><br>
+
+The OOP paradigm works with two important concepts:<br>
+--> Attributes: properties/fields/elements/variables that objects "have".<br>
+--> Methods: things that objects "do".<br>
+Both attributes and methods, are accessed by the (.) dot notation (after the class name).<br>
+
+
+### Constructor
+It's the special method that is used to initialize an object in OOP.<br>
+It is usually called at the moment of creating a class.<br>
+It is mandatory for it to have the same name as the class.<br>
+Constructors should not return anything! <br>
 
 ---
 
