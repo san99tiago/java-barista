@@ -5,12 +5,14 @@ package oop;
 
 public class Car {
 
-	// Create attributes (better as private) for the car object
-	private int wheels;
-	private String size;
-	private int motor;
-	private String color;
-	private int total_km;
+	// Create attributes (in this case the "Supercar" will be a subclass):
+	// *** --> private if there are not any subclasses (children)
+	// *** --> protected if there are subclasses (children)
+	protected int wheels;
+	protected String size;
+	protected int motor;
+	protected String color;
+	protected int total_km;
 
 	// Constructor method must have the same name as class (ex: "Car")
 	// remark: both motor and color are passed as parameters for constructor
@@ -49,9 +51,9 @@ public class Car {
 
 	// Getter method for general info (remark: remember to return something)
 	public String get_all_car_info() {
-		return "* Car's wheels: " + String.valueOf(wheels) + "\n" + "* Car's size:   " + size + "\n"
+		return ">>>CAR INFO:\n* Car's wheels: " + String.valueOf(wheels) + "\n" + "* Car's size:   " + size + "\n"
 				+ "* Car's motor:  " + String.valueOf(motor) + "\n" + "* Car's color:  " + color + "\n"
-				+ "* Car's kms:    " + String.valueOf(total_km);
+				+ "* Car's kms:    " + String.valueOf(total_km) + "\n";
 	}
 
 	// Setter method for changing car color
@@ -63,10 +65,10 @@ public class Car {
 	public void add_kms(int km_to_add) {
 		total_km = total_km + km_to_add;
 	}
-	
+
 	// Cool method
 	public void honk() {
-		System.out.println("\n  <<<PIIII SOUND>>>\n");
+		System.out.println("    <<<PIIII SOUND>>>\n");
 	}
 
 }
