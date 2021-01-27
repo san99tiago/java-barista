@@ -91,6 +91,16 @@ Static methods or attributes have special properties, like:<br>
 * They don't get to know attributes of class, unless they are static as well.
 * For using them, user "ClassName.MethodName" (ex: Math.pow(a, b)).
 
+### Inheritance
+It is really useful to be able to "inherit" attributes or methods from one class to another.<br>
+One important thing to keep in mind, is to change "private" methods, to "protected" when necessary.<br>
+Protected methods will allow us to access attributes/methods, otherwise, it wouldn't work properly.<br>
+Remark: in java, there is not multiple inheritance for a single object, because it makes things complex in many ways.<br>
+The keyword for achieving inheritance in java is "extends".<br>
+This will create an inheritance and generate a "superclass" and a "subclass".<br>
+* subclass: the class that inherits from another one (child).
+* superclass: the class being inherited from (parent).
+
 ---
 
 ## IMPORTS
