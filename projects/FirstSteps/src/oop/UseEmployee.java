@@ -52,7 +52,7 @@ public class UseEmployee {
 
 		System.out.println("\n----- INITIAL STATE OF EMPLOYEES -----");
 		for (int i = 0; i < employees.length; i++) {
-			System.out.println(employees[i].getEmployeeInfo());			
+			System.out.println(employees[i].getEmployeeInfo());
 		}
 
 		employees[0].increseSalary(5);
@@ -61,7 +61,7 @@ public class UseEmployee {
 
 		System.out.println("\n----- SECOND STATE OF EMPLOYEES -----");
 		for (int i = 0; i < employees.length; i++) {
-			System.out.println(employees[i].getEmployeeInfo());			
+			System.out.println(employees[i].getEmployeeInfo());
 		}
 
 		employees[0].increseSalary(8);
@@ -70,7 +70,7 @@ public class UseEmployee {
 
 		System.out.println("\n----- FINAL STATE OF EMPLOYEES -----");
 		for (int i = 0; i < employees.length; i++) {
-			System.out.println(employees[i].getEmployeeInfo());			
+			System.out.println(employees[i].getEmployeeInfo());
 		}
 	}
 
