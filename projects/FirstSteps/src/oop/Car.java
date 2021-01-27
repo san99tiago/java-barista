@@ -13,11 +13,12 @@ public class Car {
 	private int total_km;
 
 	// Constructor method must have the same name as class (ex: "Car")
-	public Car() {
+	// remark: both motor and color are passed as parameters for constructor
+	public Car(int motor, String color) {
 		wheels = 4;
 		size = "4059mm x 1735mm x 1506mm";
-		motor = 1400;
-		color = "orange";
+		this.motor = motor;
+		this.color = color;
 		total_km = 0;
 	}
 
@@ -61,6 +62,11 @@ public class Car {
 	// Setter method for adding kilometers of usage
 	public void add_kms(int km_to_add) {
 		total_km = total_km + km_to_add;
+	}
+	
+	// Cool method
+	public void honk() {
+		System.out.println("\n  <<<PIIII SOUND>>>\n");
 	}
 
 }
