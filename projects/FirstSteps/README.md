@@ -70,12 +70,12 @@ The OOP paradigm works with two important concepts:<br>
 --> Methods: things that objects "do".<br>
 Both attributes and methods, are accessed by the (.) dot notation (after the class name).<br>
 
-
 ### Constructor
 It's the special method that is used to initialize an object in OOP.<br>
 It is usually called at the moment of creating a class.<br>
 It is mandatory for it to have the same name as the class.<br>
 Constructors should not return anything! <br>
+* We can "overload" constructors by having multiple of them (same name and different amount of arguments).
 
 ### Getters
 Are methods with a purpose of "getting" (returning) specific private attributes/things from classes.<br>
@@ -85,6 +85,11 @@ They must return something.<br>
 Are methods to "set" (change) specific private attributes from classes.<br>
 They shouldn't return anything (void as output type).<br>
 
+### Static
+Static methods or attributes have special properties, like:<br>
+* They don't work/operate on objects (they belong to class itself).
+* They don't get to know attributes of class, unless they are static as well.
+* For using them, user "ClassName.MethodName" (ex: Math.pow(a, b)).
 
 ---
 
