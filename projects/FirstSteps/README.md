@@ -77,6 +77,15 @@ It is usually called at the moment of creating a class.<br>
 It is mandatory for it to have the same name as the class.<br>
 Constructors should not return anything! <br>
 
+### Getters
+Are methods with a purpose of "getting" (returning) specific private attributes/things from classes.<br>
+They must return something.<br>
+
+### Setters
+Are methods to "set" (change) specific private attributes from classes.<br>
+They shouldn't return anything (void as output type).<br>
+
+
 ---
 
 ## IMPORTS
@@ -84,7 +93,7 @@ Constructors should not return anything! <br>
 The main class (java.lang) is imported by default. However, when we want to use other classes, we 
 must specify that we "import" it with its specific name and the desired package/packages. <br>
 Remember to checkout when the methods are static or not (that will have an impact in the way we
-create and use the functionalities, by creating or not an object before).
+create and use the functionalities, by creating or not an object before).<br>
 
 ### Import Everything from Package:
 >import java.util.*;
