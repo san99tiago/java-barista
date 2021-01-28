@@ -18,7 +18,7 @@ public class UseVehicles {
 		System.out.println("\n--> ...Adding Kms, honk-sounds and changing stuff...\n");
 		myCar.add_kms(500);
 		myCar.honk();
-		myCar.set_color("black");
+		myCar.set_color("green");
 		myCar.add_kms(1000);
 		mySupercar.add_kms(5000);
 		mySupercar.honk();

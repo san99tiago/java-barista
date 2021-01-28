@@ -17,12 +17,13 @@ public class Supercar extends Car {
 		this.supercarType = supercarType;
 	}
 
-	// Getter method for general info
+	// Getter method for general info overwriting "Car" already created method
 	public String get_all_car_info() {
-		return ">>>CAR INFO:\n* Car's wheels: " + String.valueOf(wheels) + "\n* Car's size: " + size
-				+ "\n* Car's motor: " + String.valueOf(motor) + "\n* Car's color: " + color + "\n* Car's kms: "
-				+ String.valueOf(total_km) + "\n* Turbo Type: " + turboType + "\n* Supercar type: " + supercarType
-				+ "\n";
+		// Call superclass already created info method (to re-use valuable code)
+		String general_info = super.get_all_car_info();
+
+		// Add extra info that only "SuperCar" has
+		return "\n" + general_info + "\n* Turbo Type:    " + turboType + "\n* Supercar type: " + supercarType + "\n";
 	}
 
 	// Setter method for changing turboType for "Supercar"
@@ -32,7 +33,7 @@ public class Supercar extends Car {
 
 	// Cool method
 	public void honk() {
-		System.out.println("    <<<RRUMMMRRUMM SOUND>>>\n");
+		System.out.println("\n    <<<RRUMMMRRUMM SOUND>>>\n");
 	}
 
 }

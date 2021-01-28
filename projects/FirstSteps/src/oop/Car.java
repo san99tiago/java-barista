@@ -51,9 +51,9 @@ public class Car {
 
 	// Getter method for general info (remark: remember to return something)
 	public String get_all_car_info() {
-		return ">>>CAR INFO:\n* Car's wheels: " + String.valueOf(wheels) + "\n" + "* Car's size:   " + size + "\n"
-				+ "* Car's motor:  " + String.valueOf(motor) + "\n" + "* Car's color:  " + color + "\n"
-				+ "* Car's kms:    " + String.valueOf(total_km) + "\n";
+		return ">>>CAR INFO:\n* Car's wheels:  " + String.valueOf(wheels) + "\n" + "* Car's size:    " + size
+				+ "\n* Car's motor:   " + String.valueOf(motor) + "\n" + "* Car's color:   " + color + "\n"
+				+ "* Car's kms:     " + String.valueOf(total_km);
 	}
 
 	// Setter method for changing car color
@@ -68,7 +68,7 @@ public class Car {
 
 	// Cool method
 	public void honk() {
-		System.out.println("    <<<PIIII SOUND>>>\n");
+		System.out.println("\n    <<<PIIII SOUND>>>\n");
 	}
 
 }
