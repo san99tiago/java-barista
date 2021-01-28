@@ -1,5 +1,6 @@
 # BASIC CONCEPTS IN JAVA
-This directory is my learning path in Java for the basic concepts.
+This directory is a simple summary/recap of my learning path in Java for the basic 
+concepts.
 
 ---
 ## DATA TYPES
@@ -85,6 +86,12 @@ They must return something.<br>
 Are methods to "set" (change) specific private attributes from classes.<br>
 They shouldn't return anything (void as output type).<br>
 
+### Encapsulation
+The goal of encapsulation is to "hide" important/sensitive data.<br>
+* This is achieved by declaring attributes/methods private with the keyword "private".
+* The correct way of knowing/accessing these encapsulated elements, is by creating the 
+necessary "Getters" and "Setters" methods that can interact with them.
+
 ### Static
 Static methods or attributes have special properties, like:<br>
 * They don't work/operate on objects (they belong to class itself).
@@ -93,20 +100,48 @@ Static methods or attributes have special properties, like:<br>
 
 ### Inheritance
 It is really useful to be able to "inherit" attributes or methods from one class to another.<br>
-One important thing to keep in mind, is to change "private" methods, to "protected" when necessary.<br>
-Protected methods will allow us to access attributes/methods, otherwise, it wouldn't work properly.<br>
-Remark: in java, there is not multiple inheritance for a single object, because it makes things complex in many ways.<br>
+One important thing to keep in mind, is to change "public" methods, to "protected" 
+when we also want inheritance, but without a public access from everything.<br>
+We use "private", when the package and the subclasses shouldn't access the 
+attribute/method.<br>
+Remark: in java, there is not multiple inheritance for a single object, because it 
+makes things complex in many ways.<br>
 The keyword for achieving inheritance in java is "extends".<br>
 This will create an inheritance and generate a "superclass" and a "subclass".<br>
 * subclass: the class that inherits from another one (child).
 * superclass: the class being inherited from (parent).
 
+### Polymorphism
+It is a concept of getting the advantage of "multiple forms".<br>
+We usually implement it when there are multiple classes related to each other by 
+inheritance.<br>
+We take advantage of this, by having common methods, that perform different tasks, 
+depending on the context.<br>
+For example, if we need similar behaviors that may vary slightly depending on the
+subclass, we can implement polymorphism to their methods, by implementing those changes.<br>
+* We use it for code reusability for attributes and methods of superclasses.
+* We can also "downcast", so that we use an unique "subclass method", directly on an "superclass", by casting it to a "subclass". (Only applies when the object belongs to
+the specific "subclass", but was defined as the "superclass".
+
+### Abstraction
+This concept is essential in Object-Oriented-Programming.<br>
+It is the process of hiding and structuring classes, making superclasses restricted.<br>
+When a class is abstract, both abstract methods and class definition must have the keyword "abstract".<br>
+Abstract classes can't create objects, they are designed for future subclasses implementation.<br>
+Abstract methods don't have a body.
+They are planned and proposed in the abstract class, but their body must be provided in the subclasses (mandatory).<br>
+* Abstract classes could have both abstract and non-abstract methods.
+* Usually, abstract classes are to pre-design subclasses and achieve security by hiding certain elements.
+
+
 ---
 
 ## IMPORTS
 
-The main class (java.lang) is imported by default. However, when we want to use other classes, we 
-must specify that we "import" it with its specific name and the desired package/packages. <br>
+The main class (java.lang) is imported by default. However, when we want to use other 
+classes, we 
+must specify that we "import" it with its specific name and the desired 
+package/packages. <br>
 Remember to checkout when the methods are static or not (that will have an impact in the way we
 create and use the functionalities, by creating or not an object before).<br>
 
@@ -121,7 +156,8 @@ create and use the functionalities, by creating or not an object before).<br>
 ## MATRICES
 
 Matrices are one of the most important element in every programming language. <br>
-In Java, we can specify matrices in multiple ways, and the context will determine the best alternative.
+In Java, we can specify matrices in multiple ways, and the context will determine the 
+best alternative.
 
 ### Numeric Matrix Example 1:
 >int [] my_matrix = new int[5]; <br>
