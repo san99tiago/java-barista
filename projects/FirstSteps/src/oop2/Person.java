@@ -4,7 +4,8 @@
 package oop2;
 
 // remark: abstract because of the abstract method "getInfo()"
-public abstract class Person {
+// remark: implements "Comparable" to be able to sort by name later
+public abstract class Person implements Comparable<Object> {
 
 	// Attributes
 	private String name;
@@ -27,5 +28,20 @@ public abstract class Person {
 
 	// Abstract method to guarantee that will be implemented in children classes
 	public abstract String getInfo();
+
+	// Create method for the correct usage of "Comparable" interface
+	// ... this is to be able to "sort" Person objects by our own attributes...
+	// ...(in this case, by their names)
+	public int compareTo(Object otherObject) {
+		Person otherPerson = (Person) otherObject;
+
+		if (this.name.compareTo(otherPerson.name) > 0) {
+			return 1;
+		}
+		if (this.name.compareTo(otherPerson.name) < 0) {
+			return -1;
+		}
+		return 0;
+	}
 
 }

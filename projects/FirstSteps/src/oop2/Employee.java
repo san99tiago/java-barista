@@ -6,7 +6,7 @@ package oop2;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Employee extends Person {
+public class Employee extends Person implements EmployeesInterface {
 
 	// Create attributes
 	private String area;
@@ -66,6 +66,22 @@ public class Employee extends Person {
 	// Setter for changing area of employee
 	public void changeArea(String new_area) {
 		area = new_area;
+	}
+
+	// Method that must be implemented from the "EmployeesInterface"
+	public double giveBonus(double bonusAmount) {
+		// Create bonus from constant given by the EmployeesInterface and the parameter
+		// bonusAmount
+		double totalBonus = EmployeesInterface.BASE_BONUS_AMOUNT + bonusAmount;
+
+		// Only show console message, if this object is Employee (if it is boss, it will
+		// be created...
+		// ... in its class with its unique message (we will overwrite it)
+		if (this instanceof Boss) {
+			return totalBonus;
+		}
+		System.out.println("<Employee " + super.getName() + ", got a bonus of " + String.valueOf(totalBonus) + ">");
+		return totalBonus;
 	}
 
 }
