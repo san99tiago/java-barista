@@ -9,6 +9,7 @@ public class InputsOutputs1 {
 		
 		// ----- SCANNER: FIRST WAY OF WORKING WITH INPUTS/OUTPUTS -----
 		// Create main class Scanner for handling user input
+		@SuppressWarnings("resource")
 		Scanner my_input = new Scanner(System.in);
 
 		// Show message on console for getting user's first name
