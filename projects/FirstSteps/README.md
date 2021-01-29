@@ -127,11 +127,22 @@ the specific "subclass", but was defined as the "superclass".
 This concept is essential in Object-Oriented-Programming.<br>
 It is the process of hiding and structuring classes, making superclasses restricted.<br>
 When a class is abstract, both abstract methods and class definition must have the keyword "abstract".<br>
-Abstract classes can't create objects, they are designed for future subclasses implementation.<br>
+Abstract classes can't create objects, they are designed for future subclasses 
+implementation (like a hierarchy design).<br>
 Abstract methods don't have a body.
 They are planned and proposed in the abstract class, but their body must be provided in the subclasses (mandatory).<br>
 * Abstract classes could have both abstract and non-abstract methods.
 * Usually, abstract classes are to pre-design subclasses and achieve security by hiding certain elements.
+
+### Interfaces
+It is another way of achieving abstraction in Java, but with a different approach.<br>
+They are completely abstract classes, with a goal of establishing behaviors and 
+guidelines for the inherited subclasses.<br>
+* They can't be used to create objects and they don´t have a body.
+* For implementing, we must override all of the interface methods.
+* They help us achieve a simulated "multiple-hierarchy" (that doesn´t exist in Java).
+* This is obtained by adding the keyword "implements", before the intefaces.
+* If multiple interfaces are implemented, split them with commas (,).
 
 
 ---
