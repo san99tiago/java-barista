@@ -1,11 +1,12 @@
 // MULTIPLE EXAMPLE WITH OBJECT-ORIENTED-PROGRAMMING
+// USING ARRAY TO STORE PEOPLE
 // Santiago Garcia Arango
 
 package oop2;
 
 import java.util.Arrays;
 
-public class UsePeople {
+public class UsePeopleWithArray {
 
 	// Attributes for class usage
 	private static Person[] people = new Person[6];
