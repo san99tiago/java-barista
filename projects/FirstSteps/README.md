@@ -181,3 +181,21 @@ best alternative.
 ### Numeric Matrix Example 2:
 >int [] my_matrix = {1, 1, 2, 3, 5}; <br>
 
+---
+
+## Exceptions
+There are many type of "errors" in programs, some of them easy to handle/know, and others are way more complex to understand.<br>
+These "errors" could be created by the programmer, by the user's input, or by other
+uncontrollable things (that don't depend on us).<br>
+When a known error occurs, Java will "throw an exception" (generate an error message).<br>
+There are two main types of errors: Error and Exception. Error is not controllable.<br>
+Exceptions, on the other hand, can be of two different kinds: RuntimeException or IOException.<br>
+Generally, we will focus on handling the IOExceptions, because they could be an external
+problem that doesn't depend on us (while the RuntimeException is usually a logic-problem).<br>
+One way of handling these exceptions, is by the try-catch statement, where we define a
+block to be tested for possible errors (try)... and we define a block that will be executed
+if the error in the "try" occurs (this is the catch part).<br>
+* There is a possibility of adding "finally", to add a part that is executed, regardless of
+the result in the try-catch.
+* We can create custom errors (exceptions), by adding the logic and using the keyword
+"throw" in our code, so that we can design our programs more "secure/tested".
