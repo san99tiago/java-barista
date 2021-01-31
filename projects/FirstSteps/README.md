@@ -199,3 +199,20 @@ if the error in the "try" occurs (this is the catch part).<br>
 the result in the try-catch.
 * We can create custom errors (exceptions), by adding the logic and using the keyword
 "throw" in our code, so that we can design our programs more "secure/tested".
+
+
+---
+
+## Generic Programming
+They are a scalable way to extend Java's type-system to be able to extend methods to operate
+on different objects of multiple types, while providing a main code, with complete
+compile-time safety.<br>
+They work by specifying the type of objects of classes/methods when creating instances
+(and the definitions of those classes/methods change slightly).<br>
+It had an advantage of avoiding code repetition, while allowing extra objects functionalities.<br>
+We have some advantages for using generic programming in our code:<br>
+* Simpler code for complex projects.
+* Avoid repeating code for each object type.
+* Error checking-warnings in compiling time (not in runtime), making code "safer". This is 
+one of the most important things about this approach!
+* An example of this is the "ArrayList<T>" class, that works for multiple object-types.
