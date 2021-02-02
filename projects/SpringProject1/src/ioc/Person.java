@@ -1,3 +1,5 @@
+// Santiago Garcia Arango
+
 package ioc;
 
 public abstract class Person {
@@ -6,19 +8,24 @@ public abstract class Person {
 	private String name;
 	private String sex;
 
-	public Person(String name, String sex) {
-		this.name = name;
-		this.sex = sex;
+	public Person() {
+
 	}
 
-	// Getter for the name
 	public String getName() {
 		return name;
 	}
 
-	// Getter for the sex
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getSex() {
 		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 }

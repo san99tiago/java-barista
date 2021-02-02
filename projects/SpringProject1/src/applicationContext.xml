@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
     http://www.springframework.org/schema/beans   
     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
 
-<!-- Create dependency for reports -->
-<bean id="myReport" class="ioc.Report"></bean>
+	<!-- Create dependency bean for injecting reports (we show injections in 
+		constructor and in setter, look at Developer and Boss to see) -->
+	<bean id="myReport" class="ioc.Report"></bean>
 
-<bean id="myDeveloperObject" class="ioc.Developer">
-	<constructor-arg ref="myReport"></constructor-arg>
-	<constructor-arg value="Santiago Garcia"/>
-	<constructor-arg value="Male"/>
-	<constructor-arg value="Software Engineering"/>
-	<constructor-arg value="100"/>
-	<constructor-arg value="2022"/>
-	<constructor-arg value="9"/>
-	<constructor-arg value="25"/>
-	<constructor-arg value="Python"/>
-</bean>
+	<bean id="myDeveloperObject" class="ioc.Developer">
+		<constructor-arg ref="myReport" />
 
-<bean id="myBossObject" class="ioc.Boss">
-	<constructor-arg ref="myReport"></constructor-arg>
-	<constructor-arg value="Elizabeth Hoyos"/>
-	<constructor-arg value="Female"/>
-	<constructor-arg value="Welding Engieering"/>
-	<constructor-arg value="500"/>
-	<constructor-arg value="2023"/>
-	<constructor-arg value="1"/>
-	<constructor-arg value="21"/>
-	<constructor-arg value="Car renewal each year"/>
-	<constructor-arg value="150"/>
-</bean>
+		<property name="name" value="Santiago Garcia" />
+		<property name="sex" value="Male" />
+		<property name="area" value="Software Engineering" />
+		<property name="salary" value="100" />
+		<property name="jobEndsOn" value="2022/9/25" />
+		<property name="mainLanguage" value="Python" />
+	</bean>
+
+	<bean id="myBossObject" class="ioc.Boss">
+		<property name="newReport" ref="myReport"></property>
+
+		<property name="name" value="Elizabeth Hoyos" />
+		<property name="sex" value="Female" />
+		<property name="area" value="Welding Engieering" />
+		<property name="salary" value="500" />
+		<property name="jobEndsOn" value="2023/1/21" />
+		<property name="extraBenefits" value="Car renewal each year" />
+	</bean>
 
 </beans>

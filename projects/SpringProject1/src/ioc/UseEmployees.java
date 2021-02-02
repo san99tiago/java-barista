@@ -1,3 +1,5 @@
+// Santiago Garcia Arango
+
 package ioc;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,16 +11,17 @@ public class UseEmployees {
 		// Load main "context" for the application, using XML file
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-		// Create Developer and Boss objects, with conditions specified in the context
-		Developer santi = (Developer) context.getBean("myDeveloperObject", EmployeesInterface.class);
-		Boss eli = (Boss) context.getBean("myBossObject", EmployeesInterface.class);
+		// Create Developer and Boss objects (conditions specified in the XML context)
+		Developer santi = context.getBean("myDeveloperObject", Developer.class);
+		Boss eli = context.getBean("myBossObject", Boss.class);
 
-		// Test main methods for both objects (to see their correct different result)
+		// Test cool methods for both objects (to see their correct different result)
 		System.out.println(santi.getInfo());
 		System.out.println(santi.getReport());
 		System.out.println(eli.getInfo());
 		System.out.println(eli.getReport());
 
+		// Close context to avoid over-using resources
 		context.close();
 
 	}
