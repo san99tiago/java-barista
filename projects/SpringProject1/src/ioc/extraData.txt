@@ -1,0 +1,6 @@
+boss_name=Elizabeth Hoyos
+boss_sex=Female
+boss_area=Welding Engineering
+boss_salary=500
+boss_jobEndsOn=2023/01/21
+boss_extraBenefits=Car renewal each year!

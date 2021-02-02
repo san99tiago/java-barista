@@ -9,10 +9,15 @@
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
 
+	<!-- Load extra data in "extraData" file -->
+	<context:property-placeholder
+		location="classpath:ioc/extraData.txt" />
+
 	<!-- Create dependency bean for injecting reports (we show injections in 
 		constructor and in setter, look at Developer and Boss to see) -->
 	<bean id="myReport" class="ioc.Report"></bean>
 
+	<!-- Loading properties "manually" -->
 	<bean id="myDeveloperObject" class="ioc.Developer">
 		<constructor-arg ref="myReport" />
 
@@ -24,15 +29,16 @@
 		<property name="mainLanguage" value="Python" />
 	</bean>
 
+	<!-- Loading properties from external file "extraData.txt" -->
 	<bean id="myBossObject" class="ioc.Boss">
 		<property name="newReport" ref="myReport"></property>
 
-		<property name="name" value="Elizabeth Hoyos" />
-		<property name="sex" value="Female" />
-		<property name="area" value="Welding Engieering" />
-		<property name="salary" value="500" />
-		<property name="jobEndsOn" value="2023/1/21" />
-		<property name="extraBenefits" value="Car renewal each year" />
+		<property name="name" value="${boss_name}" />
+		<property name="sex" value="${boss_sex}" />
+		<property name="area" value="${boss_area}" />
+		<property name="salary" value="${boss_salary}" />
+		<property name="jobEndsOn" value="${boss_jobEndsOn}" />
+		<property name="extraBenefits" value="${boss_extraBenefits}" />
 	</bean>
 
 </beans>
