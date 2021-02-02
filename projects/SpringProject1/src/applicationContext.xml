@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+<!-- Create dependency for reports -->
+<bean id="myReport" class="ioc.Report"></bean>
+
+<bean id="myDeveloperObject" class="ioc.Developer">
+	<constructor-arg ref="myReport"></constructor-arg>
+	<constructor-arg value="Santiago Garcia"/>
+	<constructor-arg value="Male"/>
+	<constructor-arg value="Software Engineering"/>
+	<constructor-arg value="100"/>
+	<constructor-arg value="2022"/>
+	<constructor-arg value="9"/>
+	<constructor-arg value="25"/>
+	<constructor-arg value="Python"/>
+</bean>
+
+<bean id="myBossObject" class="ioc.Boss">
+	<constructor-arg ref="myReport"></constructor-arg>
+	<constructor-arg value="Elizabeth Hoyos"/>
+	<constructor-arg value="Female"/>
+	<constructor-arg value="Welding Engieering"/>
+	<constructor-arg value="500"/>
+	<constructor-arg value="2023"/>
+	<constructor-arg value="1"/>
+	<constructor-arg value="21"/>
+	<constructor-arg value="Car renewal each year"/>
+	<constructor-arg value="150"/>
+</bean>
+
+</beans>
