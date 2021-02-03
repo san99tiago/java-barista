@@ -5,7 +5,10 @@
 *.war
 *.ear
 *.nar
+*.zip
+*.tar.gz
 hs_err_pid*
+*.log
 
 ## Eclipse ignores
 .settings/
@@ -21,3 +24,29 @@ tmp/
 local.properties
 .loadpath
 .factorypath
+
+## Spring ignores
+classes/
+/build
+buildSrc/build
+/spring-*/build
+jmx.log
+derby.log
+spring-test/test-output/
+.gradle
+argfile*
+.settings
+.springBeans
+bin
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
