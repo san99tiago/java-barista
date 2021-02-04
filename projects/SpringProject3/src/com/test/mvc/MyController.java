@@ -1,7 +1,6 @@
-package com.test.mvc;
+// Santiago Garcia Arango
 
-import java.util.Date;
-import java.util.GregorianCalendar;
+package com.test.mvc;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,35 +12,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MyController {
 
-	@RequestMapping(value = {"/", "/mainPage"}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/mainPage" }, method = RequestMethod.GET)
 	public String mainPage() {
 		return "mainPage";
 	}
 
-	@RequestMapping(value = {"/staticPage", "/staticpage"}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/staticPage", "/staticpage" }, method = RequestMethod.GET)
 	public String staticPage() {
 		return "redirect:/resources/staticPage.html";
 	}
 
 	@RequestMapping(value = "/userForm", method = RequestMethod.GET)
-	public String userForm() {
+	public String userForm(Model model) {
 		return "userForm";
 	}
 
 	@RequestMapping(value = "/finishedUserForm", method = RequestMethod.GET)
 	public String finishedUserForm(HttpServletRequest request, Model model) {
-		// Get current date/time from server using GregorianCalendar library
-		GregorianCalendar calendar = new GregorianCalendar();
-		Date currentTime = calendar.getTime();
 
-		// Get UserName parameter from the already filled form
+		// Get parameters from the form via "request.getParameter(...)"
 		String name = request.getParameter("UserName");
+		String birthday = request.getParameter("UserBirthday");
+		String language = request.getParameter("UserProgrammingLangugae");
 
-		// Generate custom message for the user based on his response
-		String modelInfo = name + ", you are amazing and you registered on: " + currentTime.toString() + "\n";
+		Developer devObject = new Developer();
+
+		devObject.setName(name);
+		devObject.setBirthday(birthday);
+		devObject.setRegistrationDate();
+		devObject.setMainLanguage(language);
 
 		// Add custom message and attribute to the "Model" of the MVC
-		model.addAttribute("messageForUser", modelInfo);
+		model.addAttribute("developerIdentifier", devObject);
 
 		return "finishedUserForm";
 	}
