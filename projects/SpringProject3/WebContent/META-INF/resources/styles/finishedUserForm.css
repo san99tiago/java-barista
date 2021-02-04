@@ -1,0 +1,12 @@
+.container {
+	align-items: center;
+	background: rgba(55, 255, 255, 1);
+	border: solid 1px black;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	font-size: 25px;
+	justify-content: space-between;
+	margin: 50px;
+	padding: 50px 50px;
+}

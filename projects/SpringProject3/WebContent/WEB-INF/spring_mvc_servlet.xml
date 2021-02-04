@@ -23,7 +23,8 @@
 	</bean>
 
 	<!-- Resource mapping for HTML files -->
-	<mvc:resources mapping = "/**" location = "/WEB-INF/view/" />
+	<mvc:resources mapping="/resources/**"
+		location="META-INF/resources/" />
 
 
 	<mvc:annotation-driven />
