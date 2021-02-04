@@ -11,10 +11,20 @@ public class MyController {
 	public String mainPage() {
 		return "mainPage";
 	}
-	
+
 	@RequestMapping(value = "/staticPage", method = RequestMethod.GET)
-	public String redirect() {
-		return "staticPage.html";
+	public String staticPage() {
+		return "staticPage";
 	}
-	
+
+	@RequestMapping(value = "/userForm", method = RequestMethod.GET)
+	public String userForm() {
+		return "userForm";
+	}
+
+	@RequestMapping(value = "/finishedUserForm", method = RequestMethod.GET)
+	public String finishedUserForm() {
+		return "finishedUserForm";
+	}
+
 }
