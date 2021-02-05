@@ -53,12 +53,19 @@ https://spring.io
 ```
 
 * DATABASES: MYSQ | MONGODB<br>
-Some of the implemented projects, use some database to boost and create real-world applications.<br>
+Some of the implemented projects, use databases to boost and create real-world applications.<br>
 There are many great options, but I will be using MySQL and MongoDB as my two main options.<br>
 For most databases, it is important to have the correct driver added.<br>
 ```
 https://www.mysql.com
 https://www.mongodb.com/
+```
+
+* HIBERNATE<br>
+To increase production, testing and functionalities with databases, I implemented hibernate for some of my projects.<br>
+It gives us an advantage for implementing databases with ORM, without dealing with specific hard-coded SQL queries.<br>
+```
+https://hibernate.org
 ```
 
 
