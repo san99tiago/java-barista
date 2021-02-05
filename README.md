@@ -27,19 +27,40 @@ My advice is to check the main Java API reference:
 
 ### Software dependencies
 
-* JAVA RUNTIME ENVIRONMENT<br />
+* JAVA RUNTIME ENVIRONMENT <br>
 I am working with a Java-Runtime-Environment 8 or greater.<br>
 
 ```
 https://www.java.com/en/download/
 ```
 
-* IDE <br />
+* IDE <br>
 There are many great IDEs for Java development. For these projects, I used eclipse as my main tool.<br>
 
 ```
 https://www.eclipse.org/downloads/
 ```
+
+
+### Other dependencies
+
+* SPRING FRAMEWORK <br>
+Spring is one of the bestrobust frameworks for creating web apps, microservices, scalable designs and many other great things. <br>
+It is an amazing way to boost Java's productivity with a flexible (and secure) framework.<br>
+
+```
+https://spring.io
+```
+
+* DATABASES: MYSQ | MONGODB<br>
+Some of the implemented projects, use some database to boost and create real-world applications.<br>
+There are many great options, but I will be using MySQL and MongoDB as my two main options.<br>
+For most databases, it is important to have the correct driver added.<br>
+```
+https://www.mysql.com
+https://www.mongodb.com/
+```
+
 
 ## Usage :pencil2:
 All projects are really well commented and most of them have specifications and remarks for their purpose and I/O.
