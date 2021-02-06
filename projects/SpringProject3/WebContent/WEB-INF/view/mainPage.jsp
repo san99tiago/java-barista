@@ -14,8 +14,10 @@
 	<div class="container">
 		<h1>Hello my friends, I'm Santiago Garcia and this is my first
 			"view" file for MVC with Spring, using JSP technologies!!!</h1>
-
-		<a href="userForm" target="_blank">REGISTER</a>
+		<div class="container__items">
+			<a href="userForm" target="_blank">REGISTER</a>
+			<a href="checkDevelopers" target="_blank">CHECK DEVELOPERS</a>
+		</div>
 	</div>
 
 </body>

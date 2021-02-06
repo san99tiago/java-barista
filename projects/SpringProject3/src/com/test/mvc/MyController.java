@@ -45,7 +45,7 @@ public class MyController {
 		devObject.setRegistrationDate();
 		devObject.setMainLanguage(language);
 
-		addDeveloperToDatabase(devObject);
+//		addDeveloperToDatabase(devObject);
 
 		// Add custom message and attribute to the "Model" of the MVC
 		model.addAttribute("developerIdentifier", devObject);

@@ -10,21 +10,22 @@
 	background: yellow;
 	border: solid 1px black;
 	border-radius: 20px;
-	padding: 150px 100px;
+	padding: 50px 20px;
 }
 
-.container>a {
+.container__items>a {
 	background: pink;
 	border: solid 1px black;
 	border-radius: 30px;
 	color: black;
-	font-size: 30px;
+	font-size: 18px;
 	font-weight: bolder;
-	padding: 50px 100px;
+	padding: 10px 30px;
+	margin: 20px 0px 20px 0px;
 	text-decoration: none;
 }
 
-.container>a:hover {
+.container__items>a:hover {
 	background: rgb(255, 0, 0, 0.2);
 	color: red;
 }

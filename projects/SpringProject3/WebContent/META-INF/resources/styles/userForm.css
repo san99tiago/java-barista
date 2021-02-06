@@ -1,3 +1,24 @@
+header {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 10px 0px;
+	width: 100%;
+}
+
+header > form > input {
+	background-color: yellow;
+	padding: 10px;
+	margin: 0px 10px;
+}
+
+header > form > input:hover {
+	background-color: #80ff00;
+	color: blue;
+	cursor: pointer;
+}
+
 .container {
 	align-items: center;
 	background: rgba(55, 255, 255, 1);

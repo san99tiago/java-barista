@@ -1,14 +1,8 @@
-body {
-	align-items: center;
-	background: rgba(55, 255, 255, 1);
-	border: solid 1px black;
-	border-radius: 20px;
+header {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	align-items: flex-start;
 	justify-content: space-between;
-	margin: 50px;
-	padding: 50px 50px;
-	display: flex;
 }
 
 .container {

@@ -12,6 +12,14 @@
 <body>
 
 	<div class="container">
+		<header>
+			<form action="mainPage" method="GET">
+				<input type="submit" value="HOME">
+			</form>
+			<form action="checkDevelopers" method="GET">
+				<input type="submit" value="CHECK DEVELOPERS">
+			</form>
+		</header>
 		<h1>
 			This is my amazing form for developers...<br>
 		</h1>

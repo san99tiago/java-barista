@@ -11,10 +11,12 @@
 
 
 <body>
-	<header>
-		<a></a>
-	</header>
 	<div class="container">
+		<header>
+			<form action="mainPage" method="GET">
+				<input type="submit" value="HOME">
+			</form>
+		</header>
 		<h2>UserForm completed successfully!</h2>
 
 		<p>Thanks for your time, ${developerIdentifier.getName()}.</p>
