@@ -2,34 +2,23 @@
 
 package com.test.mvc;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Developer extends Person {
 
-	Date registrationDate;
+	LocalDate registrationDate;
 	String mainLanguage;
 
 	public Developer() {
 		super();
 	}
 
-	public String getRegistrationDate() {
-		return registrationDate.toString();
+	public LocalDate getRegistrationDate() {
+		return registrationDate;
 	}
 
 	public void setRegistrationDate() {
-		try {
-			this.registrationDate = getDateWithoutTimeUsingFormat();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public Date getDateWithoutTimeUsingFormat() throws ParseException {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-		return formatter.parse(formatter.format(new Date()));
+		this.registrationDate = LocalDate.now();
 	}
 
 	public String getMainLanguage() {

@@ -4,6 +4,9 @@ package com.test.mvc;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,10 +45,40 @@ public class MyController {
 		devObject.setRegistrationDate();
 		devObject.setMainLanguage(language);
 
+		addDeveloperToDatabase(devObject);
+
 		// Add custom message and attribute to the "Model" of the MVC
 		model.addAttribute("developerIdentifier", devObject);
 
 		return "finishedUserForm";
+	}
+
+	private void addDeveloperToDatabase(Developer devObject) {
+		// Create SessionFactory for correct ORM implementation
+		SessionFactory myFactory = new Configuration().configure("hibernate.cfg.xml")
+				.addAnnotatedClass(DeveloperORM.class).buildSessionFactory();
+
+		// Create Session based on already created SessionFactory
+		Session mySession = myFactory.openSession();
+
+		try {
+
+			System.out.println("--- Starting object: " + devObject.getName() + " creation to add to database ---");
+			DeveloperORM newDevObj = new DeveloperORM(devObject.getName(), devObject.getMainLanguage(),
+					devObject.getBirthday(), devObject.getRegistrationDate());
+
+			mySession.beginTransaction();
+			mySession.save(newDevObj);
+			mySession.getTransaction().commit();
+			mySession.close();
+
+			System.out.println("--- Added object:" + devObject.getName() + " succesfully to database ---");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			myFactory.close();
+		}
 	}
 
 }

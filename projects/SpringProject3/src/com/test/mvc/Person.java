@@ -2,13 +2,12 @@
 
 package com.test.mvc;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 public class Person {
 
 	private String name;
-	private Date birthday;
+	private LocalDate birthday;
 
 	public String getName() {
 		return name;
@@ -18,17 +17,14 @@ public class Person {
 		this.name = name;
 	}
 
-	public String getBirthday() {
-		return birthday.toString();
+	public LocalDate getBirthday() {
+		return birthday;
 	}
 
 	public void setBirthday(String birthday) {
 		// Convert from String input, to specific int[] array
 		int[] datePosInt = convertCustomBirthdayString(birthday);
-
-		// Remark: for GregorianCalendar objects, months start on zero
-		GregorianCalendar calendar = new GregorianCalendar(datePosInt[0], (datePosInt[1] - 1), datePosInt[2]);
-		this.birthday = calendar.getTime();
+		this.birthday = LocalDate.of(datePosInt[0], (datePosInt[1]), datePosInt[2]);
 	}
 
 	public int[] convertCustomBirthdayString(String birthday) {
