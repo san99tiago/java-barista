@@ -16,7 +16,7 @@
 			"view" file for MVC with Spring, using JSP technologies!!!</h1>
 		<div class="container__items">
 			<a href="userForm" target="_blank">REGISTER</a>
-			<a href="checkDevelopers" target="_blank">CHECK DEVELOPERS</a>
+			<a href="checkDevelopers">CHECK DEVELOPERS</a>
 		</div>
 	</div>
 

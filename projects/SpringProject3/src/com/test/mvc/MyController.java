@@ -2,6 +2,8 @@
 
 package com.test.mvc;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
@@ -45,12 +47,26 @@ public class MyController {
 		devObject.setRegistrationDate();
 		devObject.setMainLanguage(language);
 
-//		addDeveloperToDatabase(devObject);
+		addDeveloperToDatabase(devObject);
 
 		// Add custom message and attribute to the "Model" of the MVC
 		model.addAttribute("developerIdentifier", devObject);
 
 		return "finishedUserForm";
+	}
+
+	@RequestMapping(value = "/checkDevelopers", method = RequestMethod.GET)
+	public String checkDevelopers(Model model) {
+
+		List<DeveloperORM> devList = TestReadDatabase.getDevelopersByHQL("FROM DeveloperORM");
+
+		for (int i = 0; i < devList.size(); i++) {
+			System.out.println(devList.get(i));
+		}
+
+		model.addAttribute("devList", devList);
+
+		return "checkDevelopers";
 	}
 
 	private void addDeveloperToDatabase(Developer devObject) {

@@ -4,6 +4,8 @@ package com.test.mvc;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 public class DeveloperORM {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
@@ -56,34 +59,34 @@ public class DeveloperORM {
 		this.name = name;
 	}
 
-	public java.sql.Date getBirthday_date() {
+	public java.sql.Date getBirthdayDate() {
 		return birthday_date;
 	}
 
-	public void setBirthday_date(java.time.LocalDate birthday_date) {
+	public void setBirthdayDate(java.time.LocalDate birthday_date) {
 		this.birthday_date = java.sql.Date.valueOf(birthday_date);
 	}
 
-	public String getMain_language() {
+	public String getMainLanguage() {
 		return main_language;
 	}
 
-	public void setMain_language(String main_language) {
+	public void setMainLanguage(String main_language) {
 		this.main_language = main_language;
 	}
 
-	public java.sql.Date getRegistration_date() {
+	public java.sql.Date getRegistrationDate() {
 		return registration_date;
 	}
 
-	public void setRegistration_date(java.time.LocalDate registration_date) {
+	public void setRegistrationDate(java.time.LocalDate registration_date) {
 //		this.registration_date = registration_date;
 	}
 
 	@Override
 	public String toString() {
-		return "DevelopersORM [id=" + id + ", name=" + name + ", birthday_date=" + birthday_date
-				+ ", registration_date=" + registration_date + "]";
+		return "DeveloperORM [id=" + id + ", name=" + name + ", main_language=" + main_language + ", birthday_date="
+				+ birthday_date + ", registration_date=" + registration_date + "]";
 	}
 
 }
