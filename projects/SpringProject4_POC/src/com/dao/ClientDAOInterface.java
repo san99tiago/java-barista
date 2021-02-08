@@ -6,4 +6,5 @@ public interface ClientDAOInterface {
 
 	public String getClients();
 	public boolean setNewClient(ClientORM newClient);
+
 }
