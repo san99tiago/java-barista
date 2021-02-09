@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  * Servlet implementation class CheckDB to test correct MySQL db connection
@@ -22,8 +24,6 @@ public class CheckConnectionToDB extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public CheckConnectionToDB() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -33,6 +33,11 @@ public class CheckConnectionToDB extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		testMySQL(request, response);
+		testMongo(request, response);
+	}
+
+	public void testMySQL(HttpServletRequest request, HttpServletResponse response) {
 		// Info to connect to MySQL database in MySQL workbench
 //		String jdbcUrl = "jdbc:mysql://localhost:3306/spring_projects?useSSL=false";
 		String jdbcUrl = "jdbc:mysql://localhost:3306/spring_projects";
@@ -58,4 +63,21 @@ public class CheckConnectionToDB extends HttpServlet {
 		}
 	}
 
+	public void testMongo(HttpServletRequest request, HttpServletResponse response) {
+//		// Info to connect to MongoDB
+//		String jdbcUrl = "jdbc:mongo://localhost:27017/clientphotos";
+//		String user = "";
+//		String pass = "";
+//		String driverMongo = "com.mongodb.MongoClient";
+//		
+//		try {
+//			Class.forName(driverMongo); // Add MySQL driver for finding service
+//			Connection connector = DriverManager.getConnection(jdbcUrl, user, pass);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}
+
+	}
 }

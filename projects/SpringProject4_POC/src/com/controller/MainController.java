@@ -35,17 +35,7 @@ public class MainController {
 	@ResponseBody
 	public String updateClientByIdParams(@PathVariable("idType") String idType, @PathVariable("idValue") String idValue,
 			@RequestBody String updatedClientInfoJSON) {
-		// Map JSON to ClientORM object with "Gson" google library
-		Gson g = new Gson();
-
-		ClientORM updatedClientORM;
-		try {
-			updatedClientORM = g.fromJson(updatedClientInfoJSON, ClientORM.class);
-		} catch (Exception e) {
-			System.out.println("---> Could NOT convert JSON to Object <---");
-			e.printStackTrace();
-			return "[WARNING: The JSON in the body didn't follow the rules for updating new Clients.]";
-		}
+		ClientORM updatedClientORM = getClientFromJSON(updatedClientInfoJSON);
 
 		return clientDaoClass.updateClientByIdParams(idType, idValue, updatedClientORM);
 	}
@@ -60,17 +50,7 @@ public class MainController {
 	@RequestMapping(value = "/clients", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String setNewClientBtId(@RequestBody String newClientInfoJSON) {
-		// Map JSON to ClientORM object with "Gson" google library
-		Gson g = new Gson();
-
-		ClientORM newClientORM;
-		try {
-			newClientORM = g.fromJson(newClientInfoJSON, ClientORM.class);
-		} catch (Exception e) {
-			System.out.println("---> Could NOT convert JSON to Object <---");
-			e.printStackTrace();
-			return "[WARNING: The JSON in the body didn't follow the rules for adding new Clients.]";
-		}
+		ClientORM newClientORM = getClientFromJSON(newClientInfoJSON);
 
 		// Response String based on the success of adding new client
 		String responseString;
@@ -86,6 +66,20 @@ public class MainController {
 		}
 
 		return responseString;
+	}
+
+	public ClientORM getClientFromJSON(String clientInfoJSON) {
+		// Map JSON to ClientORM object with "Gson" google library
+		Gson g = new Gson();
+
+		try {
+			ClientORM client = g.fromJson(clientInfoJSON, ClientORM.class);
+			return client;
+		} catch (Exception e) {
+			System.out.println("---> Could NOT convert JSON to Object <---");
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
