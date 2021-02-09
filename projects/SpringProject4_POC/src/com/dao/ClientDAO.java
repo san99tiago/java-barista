@@ -110,7 +110,8 @@ public class ClientDAO implements ClientDAOInterface {
 			List<ClientORM> clientList = query.list();
 
 			// If the result was successful, change parameters of the updated client
-			if (clientList.size() > 0) {
+			if (clientList.size() > 0 && idType.equals(updatedClientORM.getIdType())
+					&& idValue.equals(updatedClientORM.getIdValue())) {
 				int specificId = clientList.get(0).getId();
 				ClientORM specificClient = mySession.get(ClientORM.class, specificId);
 				specificClient.setName(updatedClientORM.getName());
@@ -195,8 +196,8 @@ public class ClientDAO implements ClientDAOInterface {
 			@SuppressWarnings("unchecked")
 			Query<ClientORM> query = mySession.createQuery(hqlString);
 			int res = query.executeUpdate();
-			
-			if (res > 0) {			
+
+			if (res > 0) {
 				System.out.println("[SUCCEDED: Client updated correctly]");
 				return "[SUCCEDED: Client deleted correctly]";
 			}
