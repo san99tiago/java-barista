@@ -2,9 +2,7 @@ package com.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,10 +25,36 @@ public class MainController {
 		return clientDaoClass.getClients();
 	}
 
-	@GetMapping("/clients/idType/{idType}/idValue/{idValue}")
+	@RequestMapping(value = "/clients/idType/{idType}/idValue/{idValue}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public String getClientBtId(@PathVariable("idType") String idType, @PathVariable("idValue") String idValue) {
-		return "This JSON response is not developed yet";
+	public String getClientByIdParams(@PathVariable("idType") String idType, @PathVariable("idValue") String idValue) {
+		return clientDaoClass.getClientByIdParams(idType, idValue);
+	}
+
+	@RequestMapping(value = "/clients/idType/{idType}/idValue/{idValue}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String updateClientByIdParams(@PathVariable("idType") String idType, @PathVariable("idValue") String idValue,
+			@RequestBody String updatedClientInfoJSON) {
+		// Map JSON to ClientORM object with "Gson" google library
+		Gson g = new Gson();
+
+		ClientORM updatedClientORM;
+		try {
+			updatedClientORM = g.fromJson(updatedClientInfoJSON, ClientORM.class);
+		} catch (Exception e) {
+			System.out.println("---> Could NOT convert JSON to Object <---");
+			e.printStackTrace();
+			return "[WARNING: The JSON in the body didn't follow the rules for updating new Clients.]";
+		}
+
+		return clientDaoClass.updateClientByIdParams(idType, idValue, updatedClientORM);
+	}
+
+	@RequestMapping(value = "/clients/idType/{idType}/idValue/{idValue}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String deleteClientByIdParams(@PathVariable("idType") String idType,
+			@PathVariable("idValue") String idValue) {
+		return clientDaoClass.deleteClientByIdParams(idType, idValue);
 	}
 
 	@RequestMapping(value = "/clients", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -57,7 +81,8 @@ public class MainController {
 		if (resultBoolean == true) {
 			responseString = "[SUCCEDED ... " + newClientORM.toString() + " ... added successfuly]";
 		} else {
-			responseString = "[FAILED (WARNING) ... " + newClientORM.toString() + " ... did NOT match rules to be added]";
+			responseString = "[FAILED (WARNING) ... " + newClientORM.toString()
+					+ " ... did NOT match rules to be added]";
 		}
 
 		return responseString;
