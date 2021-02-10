@@ -1,7 +1,5 @@
 package com.challenge.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,8 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "base64")
 public class ClientPhotoORM {
 
-	@Id
-	private int id;
+//	@Id
+//	private int id;
 
 	private String idValue;
 	private String idType;
@@ -49,17 +47,19 @@ public class ClientPhotoORM {
 		this.photo = photo;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	@Override
 	public String toString() {
-		return "ClientPhotoORM [id=" + id + ", idValue=" + idValue + ", idType=" + idType + ", photo=" + photo + "]";
+		return "ClientPhotoORM [idType=" + idType + ", idValue=" + idValue + ", photo=" + photo + "]";
 	}
-
+	
+	public String toJSON() {
+		return "{\"idType\": \"" + idType + "\", \"idValue\": \"" + idValue + "\", \"photo\": \"" + photo + "\"}";	};
 }
