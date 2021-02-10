@@ -4,37 +4,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.challenge.model.ClientPhotoORM;
-import com.challenge.repository.ClientPhotoRepository;
-
+import com.challenge.service.ClientPhotoService;
+import com.challenge.service.ClientService;
 
 @Controller
-public class MainController {
+public class FrontController {
 
 	@Autowired
-	private ClientPhotoRepository clientPhotoRepository; // Dependency injection
+	private ClientService clientService; // Dependency injection
+
+	@Autowired
+	private ClientPhotoService clientPhotoService; // Dependency injection
 
 	@RequestMapping(value = "/clients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String getClients() {
-		return "TESTING";
+		return clientService.getClients();
 	}
-	
-	@RequestMapping(value = "/clients", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public String setNewClientBtId(@RequestBody ClientPhotoORM clientPhotoORM) {
-		clientPhotoRepository.save(clientPhotoORM);
-		return "TESTING CLIENT: " + clientPhotoORM.getId() + "!!!";
-	}
-	
-	
 
+	@RequestMapping(value = "/clientphotos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String getClientPhotos() {
+		return clientPhotoService.getClientPhotos();
+	}
+
+//	@RequestMapping(value = "/clients", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+//	@ResponseBody
+//	public String setNewClient(@RequestBody ClientORM clientORM) {
+//		return ClientController.setNetClient(clientRepository, clientORM);
+//	}
+//
 //	@RequestMapping(value = "/clients/idType/{idType}/idValue/{idValue}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 //	@ResponseBody
 //	public String getClientByIdParams(@PathVariable("idType") String idType, @PathVariable("idValue") String idValue) {
