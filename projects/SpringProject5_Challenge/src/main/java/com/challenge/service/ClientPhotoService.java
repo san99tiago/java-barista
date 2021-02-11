@@ -12,7 +12,7 @@ public class ClientPhotoService {
 	@Autowired
 	private ClientPhotoRepository clientPhotoRepository;
 
-	public String getClientPhotos() {
+	public  String getClientPhotos() {
 		Iterable<ClientPhotoORM> clientphotos = clientPhotoRepository.findAll();
 
 		String returnString = "[";

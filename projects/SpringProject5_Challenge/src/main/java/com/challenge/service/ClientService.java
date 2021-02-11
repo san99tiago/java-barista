@@ -1,5 +1,8 @@
 package com.challenge.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,24 +11,59 @@ import com.challenge.repository.ClientRepository;
 
 @Service
 public class ClientService {
-	
+
 	@Autowired
 	private ClientRepository clientRepository;
 
-	public String getClients() {
-		Iterable<ClientORM> clients = clientRepository.findAll();
+	public List<ClientORM> getClients() {
+		// List to get all clients
+		List<ClientORM> clients = new ArrayList<ClientORM>();
 
-		String returnString = "[";
-		for (ClientORM c : clients) {
-			returnString = returnString + c.toJSON();
+		// Lambda expression for adding all clients
+		clientRepository.findAll().forEach(clients::add);
+
+		return clients;
+	}
+
+	public List<ClientORM> getClientByIdParams(String idType, String idValue) {
+		return clientRepository.findByIdTypeAndIdValue(idType, idValue);
+	}
+	
+	public List<ClientORM> getClientsOlderThan(String age) {
+		return clientRepository.findByAgeGreaterThan(Integer.parseInt(age));
+	}
+
+	public ClientORM addClient(ClientORM clientORM) {
+		List<ClientORM> clientsWithSameIdParams = clientRepository.findByIdTypeAndIdValue(clientORM.getIdType(),
+				clientORM.getIdValue());
+
+		if (clientsWithSameIdParams.size() == 0) {
+			return clientRepository.save(clientORM);
+		} else {
+			return null;
 		}
-		returnString = returnString + "]";
 
-		return returnString;
 	}
 
-	public String setNetClient(ClientRepository clientRepository, ClientORM clientORM) {
-		clientRepository.save(clientORM);
-		return "NOT DEVELOPED YET";
+	public ClientORM updateClient(String idType, String idValue, ClientORM clientORM) {
+		List<ClientORM> clientToEdit = clientRepository.findByIdTypeAndIdValue(idType, idValue);
+
+		if (clientToEdit.size() > 0) {
+			clientORM.setId(clientToEdit.get(0).getId());
+			return clientRepository.save(clientORM);
+		} else {
+			return null;
+		}
+
 	}
+
+	public String deleteClientByIdParams(String idType, String idValue) {
+		List<ClientORM> clientToDelete = clientRepository.findByIdTypeAndIdValue(idType, idValue);
+
+		if (clientToDelete.size() > 0) {
+			clientRepository.deleteById(clientToDelete.get(0).getId());
+			return "[Done]";
+		} else {
+			return null;
+		}	}
 }
