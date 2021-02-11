@@ -1,5 +1,7 @@
 package com.challenge.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +14,46 @@ public class ClientPhotoService {
 	@Autowired
 	private ClientPhotoRepository clientPhotoRepository;
 
-	public  String getClientPhotos() {
-		Iterable<ClientPhotoORM> clientphotos = clientPhotoRepository.findAll();
-
-		String returnString = "[";
-		for (ClientPhotoORM c : clientphotos) {
-			returnString = returnString + c.toJSON();
-		}
-		returnString = returnString + "]";
-
-		return returnString;
+	public List<ClientPhotoORM> getClientPhotos() {
+		return clientPhotoRepository.findAll();
 	}
 
-	public String setNetClientPhoto(ClientPhotoORM clientPhotoORM) {
-//		clientRepository.save(clientPhotoORM);
-		return "NOT DEVELOPED YET";
+	public List<ClientPhotoORM> getClientPhotoByIdParams(String idType, String idValue) {
+		return clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
+	}
+
+	public ClientPhotoORM addClientPhoto(ClientPhotoORM clientPhotoORM) {
+		List<ClientPhotoORM> clientsWithSameIdParams = clientPhotoRepository
+				.findByIdTypeAndIdValue(clientPhotoORM.getIdType(), clientPhotoORM.getIdValue());
+
+		if (clientsWithSameIdParams.size() == 0) {
+			return clientPhotoRepository.save(clientPhotoORM);
+		} else {
+			return null;
+		}
+
+	}
+
+	public ClientPhotoORM updateClientPhoto(String idType, String idValue, ClientPhotoORM clientPhotoORM) {
+		List<ClientPhotoORM> clientToEdit = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
+
+		if (clientToEdit.size() > 0) {
+			clientPhotoORM.setId(clientToEdit.get(0).getId());
+			return clientPhotoRepository.save(clientPhotoORM);
+		} else {
+			return null;
+		}
+
+	}
+
+	public String deleteClientPhotoByIdParams(String idType, String idValue) {
+		List<ClientPhotoORM> clientToDelete = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
+
+		if (clientToDelete.size() > 0) {
+			clientPhotoRepository.deleteById(clientToDelete.get(0).getId());
+			return "[Done]";
+		} else {
+			return null;
+		}
 	}
 }
