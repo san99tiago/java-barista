@@ -33,7 +33,7 @@
 					<th>Birthday Date</th>
 					<th>Registration Date</th>
 				</tr>
-				
+
 				<c:forEach items="${devList}" var="dev">
 
 					<tr>
