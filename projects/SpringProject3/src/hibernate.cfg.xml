@@ -14,7 +14,7 @@
 
 		<!-- Assume test is the database name -->
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/spring_projects
+			jdbc:mysql://localhost:3306/spring_projects?serverTimezone=UTC
 		</property>
 
 		<property name="hibernate.connection.username">
@@ -24,7 +24,6 @@
 		<property name="hibernate.connection.password">
 			1234
 		</property>
-
 
 	</session-factory>
 </hibernate-configuration>
