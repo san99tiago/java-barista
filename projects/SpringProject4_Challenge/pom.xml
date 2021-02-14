@@ -12,9 +12,9 @@
 	</parent>
 
 	<groupId>com.poc</groupId>
-	<artifactId>SpringProject5_Challenge</artifactId>
+	<artifactId>SpringProject4_Challenge</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringProject5_Challenge</name>
+	<name>SpringProject4_Challenge</name>
 	<description>Project to create a REST API with CRUD for 2 databases</description>
 
 	<properties>
