@@ -44,7 +44,7 @@ public class Employee {
 
 		// Set default job's end date one year after creation (overwrite jobEndsOn)
 		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.add(GregorianCalendar.YEAR, 1);
+		calendar.add(Calendar.YEAR, 1);
 		jobEndsOn = calendar.getTime();
 
 	}

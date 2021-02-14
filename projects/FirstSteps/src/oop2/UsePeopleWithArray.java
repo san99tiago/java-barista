@@ -59,7 +59,7 @@ public class UsePeopleWithArray {
 	public static void createPeople() {
 		// Create instances of the objects Student Employee in Person array (superclass)
 		people[0] = new Student("Monica Hill", "Female", "Finance", "EIA University");
-		people[0] = (Student) people[0];
+		people[0] = people[0];
 		people[1] = new Employee("Santiago Garcia", "Male", "Engineering", 100, 2021, 7, 28);
 		people[2] = new Student("Laura Lopez", "Female", "Management", "UPB University");
 		people[3] = new Employee("Santiago Mendez", "Male", "Testing", 150, 2024, 12, 15);

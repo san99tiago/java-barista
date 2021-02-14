@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 public class LoadFileError {
 
@@ -42,7 +43,7 @@ public class LoadFileError {
 			lbl.setIcon(icon);
 			frame.add(lbl);
 			frame.setVisible(true);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 			System.out.println("Program added and loaded image correctly.");
 
 		} catch (IOException e) {

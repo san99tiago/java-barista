@@ -3,6 +3,7 @@
 
 package oop2;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -46,12 +47,13 @@ public class Employee extends Person implements EmployeesInterface {
 
 		// Set default job's end date one year after creation (overwrite jobEndsOn)
 		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.add(GregorianCalendar.YEAR, 1);
+		calendar.add(Calendar.YEAR, 1);
 		jobEndsOn = calendar.getTime();
 
 	}
 
 	// Getter for all information (this is an abstract class that we must use)
+	@Override
 	public String getInfo() {
 		return "* Name: " + super.getName() + " (" + super.getSex() + ")\n* ID / Area: " + String.valueOf(id) + " / "
 				+ String.valueOf(area) + "\n* Salary: " + String.valueOf(salary) + "\n* Job Ends On: "
@@ -69,6 +71,7 @@ public class Employee extends Person implements EmployeesInterface {
 	}
 
 	// Method that must be implemented from the "EmployeesInterface"
+	@Override
 	public double giveBonus(double bonusAmount) {
 		// Create bonus from constant given by the EmployeesInterface and the parameter
 		// bonusAmount

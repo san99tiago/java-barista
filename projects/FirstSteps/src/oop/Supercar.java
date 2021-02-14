@@ -18,6 +18,7 @@ public class Supercar extends Car {
 	}
 
 	// Getter method for general info overwriting "Car" already created method
+	@Override
 	public String get_all_car_info() {
 		// Call superclass already created info method (to re-use valuable code)
 		String general_info = super.get_all_car_info();
@@ -32,6 +33,7 @@ public class Supercar extends Car {
 	}
 
 	// Cool method
+	@Override
 	public void honk() {
 		System.out.println("\n    <<<RRUMMMRRUMM SOUND>>>\n");
 	}
