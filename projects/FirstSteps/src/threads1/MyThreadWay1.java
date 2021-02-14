@@ -20,6 +20,7 @@ public class MyThreadWay1 extends Thread {
 	}
 
 	// We must overwrite this method to use threads correctly
+	@Override
 	public void run() {
 		while (!exitThread && counter < 20) {
 			counter++;

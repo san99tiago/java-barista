@@ -27,7 +27,7 @@ public class Variables {
 		// Change "c" variable multiple times in different ways
 		c++;
 		System.out.println("New c (after c++): " + c);
-		c = Math.pow((double) a, (double) b); // Convert to double (for correct arguments in "pow" method)
+		c = Math.pow(a, b); // Convert to double (for correct arguments in "pow" method)
 		System.out.println("Final c [after c = Math.pow(a, b)]: " + c);
 		c = c + Math.PI;
 		System.out.println("Final c [after c = c + Math.PI]: " + c);

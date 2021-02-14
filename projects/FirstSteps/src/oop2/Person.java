@@ -32,6 +32,7 @@ public abstract class Person implements Comparable<Object> {
 	// Create method for the correct usage of "Comparable" interface
 	// ... this is to be able to "sort" Person objects by our own attributes...
 	// ...(in this case, by their names)
+	@Override
 	public int compareTo(Object otherObject) {
 		Person otherPerson = (Person) otherObject;
 

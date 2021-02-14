@@ -23,12 +23,14 @@ public class Boss extends Employee implements BossesInterface {
 	}
 
 	// Getter for all information (this is an abstract class that we must use)
+	@Override
 	public String getInfo() {
 		return super.getInfo() + "* Extra Benefits: " + extraBenefits + "\n* Extra Donation Money: "
 				+ String.valueOf(extraDonationMoney) + "\n";
 	}
 
 	// Method that must be implemented from the "BossesInterface"
+	@Override
 	public String createMeeting(String meetingName, int year, int month, int day) {
 		// Remark: for GregorianCalendar objects, months start on zero
 		GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
@@ -43,12 +45,14 @@ public class Boss extends Employee implements BossesInterface {
 	}
 
 	// Method that must be implemented from the "BossesInterface"
+	@Override
 	public void redeemVacations() {
 		System.out.println("<Boss " + super.getName() + " reedeemed vacations>");
 	}
 
 	// Method that must be implemented from the "BossesInterface" (extended from...
 	// ..."EmployeesInterface") (we overwrite to give special privileges to bosses
+	@Override
 	public double giveBonus(double bonusAmount) {
 		// Create bonus from constant given by the EmployeesInterface and the parameter
 		// bonusAmount and add extra bonus for bosses only

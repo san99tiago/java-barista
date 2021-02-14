@@ -17,6 +17,7 @@ public class Student extends Person {
 	}
 
 	// Getter for all information (this is an abstract class that we must use)
+	@Override
 	public String getInfo() {
 		return "* Name: " + super.getName() + " (" + super.getSex() + ")\n* Study Field: " + studyField
 				+ "\n* University: " + university + "\n";
