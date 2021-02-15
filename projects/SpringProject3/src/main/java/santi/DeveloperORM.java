@@ -1,6 +1,6 @@
 // ORM CLASS TO CONNECT TO  MYSQL SCHEMA-TABLE
 // Santiago Garcia Arango
-package com.test.mvc;
+package main.java.santi;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

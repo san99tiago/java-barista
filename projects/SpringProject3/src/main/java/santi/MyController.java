@@ -1,6 +1,6 @@
 // Santiago Garcia Arango
 
-package com.test.mvc;
+package main.java.santi;
 
 import java.util.List;
 
