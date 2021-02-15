@@ -25,6 +25,10 @@ local.properties
 .loadpath
 .factorypath
 
+## VSCode ignores
+.vscode
+
+
 ## Spring ignores
 classes/
 /build
