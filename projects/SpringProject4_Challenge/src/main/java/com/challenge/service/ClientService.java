@@ -28,7 +28,7 @@ public class ClientService {
 	public List<ClientORM> getClientByIdParams(String idType, String idValue) {
 		return clientRepository.findByIdTypeAndIdValue(idType, idValue);
 	}
-	
+
 	public List<ClientORM> getClientsOlderThan(String age) {
 		return clientRepository.findByAgeGreaterThan(Integer.parseInt(age));
 	}
