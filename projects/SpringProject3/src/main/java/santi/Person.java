@@ -21,13 +21,14 @@ public class Person {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(String birthday) throws RuntimeException{
 		try {
 			// Convert from String input, to specific int[] array
 			int[] datePosInt = convertCustomBirthdayString(birthday);
 			this.birthday = LocalDate.of(datePosInt[0], (datePosInt[1]), datePosInt[2]);
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			e.printStackTrace();
+			throw new RuntimeException();
 		}
 	}
 

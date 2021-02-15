@@ -50,7 +50,7 @@ class PersonTest {
 		assertThrows(RuntimeException.class, () -> {
 			Person person = new Person();
 			String birthday = "1999-12-20";
-			System.out.println(person.convertCustomBirthdayString(birthday));
+			person.convertCustomBirthdayString(birthday);
 		});
 	}
 
@@ -59,7 +59,7 @@ class PersonTest {
 		assertThrows(RuntimeException.class, () -> {
 			Person person = new Person();
 			String birthday = "-1999/12/20";
-			System.out.println(person.convertCustomBirthdayString(birthday));
+			person.convertCustomBirthdayString(birthday);
 		});
 	}
 
@@ -68,7 +68,7 @@ class PersonTest {
 		assertThrows(RuntimeException.class, () -> {
 			Person person = new Person();
 			String birthday = "1999/0/20";
-			System.out.println(person.convertCustomBirthdayString(birthday));
+			person.convertCustomBirthdayString(birthday);
 		});
 	}
 
@@ -77,7 +77,25 @@ class PersonTest {
 		assertThrows(RuntimeException.class, () -> {
 			Person person = new Person();
 			String birthday = "1999/13/20";
-			System.out.println(person.convertCustomBirthdayString(birthday));
+			person.convertCustomBirthdayString(birthday);
+		});
+	}
+	
+	@Test
+	void testExceptionConvertCustomBirthdayStringWrongDayInputLower() {
+		assertThrows(RuntimeException.class, () -> {
+			Person person = new Person();
+			String birthday = "1999/1/0";
+			person.convertCustomBirthdayString(birthday);
+		});
+	}
+	
+	@Test
+	void testExceptionConvertCustomBirthdayStringWrongDayInputUpper() {
+		assertThrows(RuntimeException.class, () -> {
+			Person person = new Person();
+			String birthday = "1999/1/32";
+			person.convertCustomBirthdayString(birthday);
 		});
 	}
 
@@ -90,5 +108,13 @@ class PersonTest {
 		assertEquals(person.getBirthday(), expectedBirthday,
 				"Person Object instance with an already set birthday, should return given birthday in String format");
 	}
-
+	
+	@Test
+	void testExceptionConvertCustomBirthdayStringSetting() {
+		assertThrows(RuntimeException.class, () -> {
+			Person person = new Person();
+			String birthday = "1999-12-20";
+			person.setBirthday(birthday);
+		});
+	}
 }
