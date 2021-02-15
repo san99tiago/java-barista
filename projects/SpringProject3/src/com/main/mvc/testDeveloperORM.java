@@ -1,7 +1,7 @@
 // TEST CORRECT DEVELOPERS ADDED TO THE DATABASE VIA ORM
 // Santiago Garcia Arango
 
-package com.test.mvc;
+package com.main.mvc;
 
 import java.time.LocalDate;
 

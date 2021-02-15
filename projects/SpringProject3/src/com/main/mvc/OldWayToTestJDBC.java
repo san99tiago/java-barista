@@ -1,4 +1,4 @@
-package com.test.mvc;
+package com.main.mvc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

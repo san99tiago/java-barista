@@ -1,4 +1,4 @@
-package com.test.mvc;
+package com.main.mvc;
 
 import java.util.List;
 
