@@ -1,4 +1,4 @@
-package com.main.mvc;
+package main.java.santi;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
