@@ -17,12 +17,6 @@ public class ClientPhotoORM {
 	public ClientPhotoORM() {
 	}
 
-	public ClientPhotoORM(String idType, String idValue, String photo) {
-		this.idType = idType;
-		this.idValue = idValue;
-		this.photo = photo;
-	}
-
 	public String getIdValue() {
 		return idValue;
 	}
