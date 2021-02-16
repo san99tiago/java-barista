@@ -102,7 +102,7 @@ public class ClientServiceTest {
 		clientsWithIdParamsMock.add(clientMockORM);
 		when(clientRepository.findByIdTypeAndIdValue("cc", "8888")).thenReturn(clientsWithIdParamsMock);
 
-		clientService.updateClient("cc", "8888", clientMockORM);
+		clientService.updateClient(clientMockORM, "cc", "8888");
 		verify(clientRepository).save(clientMockORM);
 	}
 
@@ -119,7 +119,7 @@ public class ClientServiceTest {
 
 		when(clientRepository.findByIdTypeAndIdValue("cc", "8888")).thenReturn(new ArrayList<ClientORM>());
 
-		clientService.updateClient("cc", "8888", clientMockORM);
+		clientService.updateClient(clientMockORM, "cc", "8888");
 		verify(clientRepository, never()).save(clientMockORM);
 	}
 

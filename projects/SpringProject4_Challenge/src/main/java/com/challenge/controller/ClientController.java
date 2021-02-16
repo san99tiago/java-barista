@@ -58,7 +58,7 @@ public class ClientController {
 	@ApiOperation(value = "Update existing client by ID parameters.", notes = "If the client doesn't exist, it won't create a new one.")
 	public ClientORM updateClient(@RequestBody ClientORM clientORM, @PathVariable String idType,
 			@PathVariable String idValue) {
-		return clientService.updateClient(idType, idValue, clientORM);
+		return clientService.updateClient(clientORM, idType, idValue);
 	}
 
 	@RequestMapping(value = "/idType/{idType}/idValue/{idValue}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)

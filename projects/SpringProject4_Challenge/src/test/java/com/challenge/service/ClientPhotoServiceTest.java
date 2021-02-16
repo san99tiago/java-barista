@@ -88,7 +88,7 @@ class ClientPhotoServiceTest {
 		clientPhotosWithIdParamsMock.add(clientPhotoMockORM);
 		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "1111")).thenReturn(clientPhotosWithIdParamsMock);
 
-		clientPhotoService.updateClientPhoto("cc", "1111", clientPhotoMockORM);
+		clientPhotoService.updateClientPhoto(clientPhotoMockORM, "cc", "1111");
 		verify(clientPhotoRepository).save(clientPhotoMockORM);
 	}
 
@@ -102,7 +102,7 @@ class ClientPhotoServiceTest {
 
 		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "1111")).thenReturn(new ArrayList<ClientPhotoORM>());
 
-		clientPhotoService.updateClientPhoto("cc", "1111", clientPhotoMockORM);
+		clientPhotoService.updateClientPhoto(clientPhotoMockORM, "cc", "1111");
 		verify(clientPhotoRepository, never()).save(clientPhotoMockORM);
 	}
 
