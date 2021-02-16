@@ -44,7 +44,7 @@ public class ClientORM {
 	}
 
 	public String toJSON() {
-		return "{\"id\": \"" + id + "\", \"name\": \"" + name + "\", \"lastname\" :\"" + lastname + "\", \"idType\": \""
+		return "{\"id\": \"" + id + "\", \"name\": \"" + name + "\", \"lastname\": \"" + lastname + "\", \"idType\": \""
 				+ idType + "\", \"idValue\": \"" + idValue + "\", \"age\": \"" + age + "\", \"bornCity\": \"" + bornCity
 				+ "\"}";
 	}
