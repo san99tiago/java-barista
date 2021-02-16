@@ -45,7 +45,7 @@ public class ClientService {
 
 	}
 
-	public ClientORM updateClient(String idType, String idValue, ClientORM clientORM) {
+	public ClientORM updateClient(ClientORM clientORM, String idType, String idValue) {
 		List<ClientORM> clientToEdit = clientRepository.findByIdTypeAndIdValue(idType, idValue);
 
 		if (clientToEdit.size() > 0) {

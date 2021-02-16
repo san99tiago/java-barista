@@ -34,7 +34,7 @@ public class ClientPhotoService {
 
 	}
 
-	public ClientPhotoORM updateClientPhoto(String idType, String idValue, ClientPhotoORM clientPhotoORM) {
+	public ClientPhotoORM updateClientPhoto(ClientPhotoORM clientPhotoORM, String idType, String idValue) {
 		List<ClientPhotoORM> clientToEdit = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
 
 		if (clientToEdit.size() > 0) {

@@ -51,7 +51,7 @@ public class ClientPhotoController {
 	@ApiOperation(value = "Update existing clientPhoto by ID parameters.", notes = "If the clientPhoto doesn't exist, it won't create a new one.")
 	public ClientPhotoORM updateClientPhoto(@RequestBody ClientPhotoORM clientPhotoORM, @PathVariable String idType,
 			@PathVariable String idValue) {
-		return clientPhotoService.updateClientPhoto(idType, idValue, clientPhotoORM);
+		return clientPhotoService.updateClientPhoto(clientPhotoORM, idType, idValue);
 	}
 
 	@RequestMapping(value = "/idType/{idType}/idValue/{idValue}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
