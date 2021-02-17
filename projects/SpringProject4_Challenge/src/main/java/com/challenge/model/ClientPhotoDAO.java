@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "base64")
-public class ClientPhotoORM {
+public class ClientPhotoDAO {
 
 	@Id
 	private String id;
@@ -14,7 +14,7 @@ public class ClientPhotoORM {
 	private String idType;
 	private String photo;
 
-	public ClientPhotoORM() {
+	public ClientPhotoDAO() {
 	}
 
 	public String getIdValue() {

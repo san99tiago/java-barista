@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ClientPhotoORMTest {
+class ClientPhotoDAOTest {
 
 	@Test
 	void testClientPhotoORMWithoutAttributes() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 
 		assertAll("Should return default values for ClientPhotoORM objects",
 				() -> assertEquals(null, clientPhoto.getId()), () -> assertEquals(null, clientPhoto.getIdType()),
@@ -17,7 +17,7 @@ class ClientPhotoORMTest {
 
 	@Test
 	void testClientPhotoORMWithSpecificIdType() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 
 		String idType = "cc";
 		clientPhoto.setIdType(idType);
@@ -27,7 +27,7 @@ class ClientPhotoORMTest {
 
 	@Test
 	void testClientPhotoORMWithSpecificIdValue() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 
 		String idValue = "cc";
 		clientPhoto.setIdValue(idValue);
@@ -37,7 +37,7 @@ class ClientPhotoORMTest {
 
 	@Test
 	void testClientPhotoORMWithSpecificPhoto() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 
 		String photo = "not added";
 		clientPhoto.setPhoto(photo);
@@ -47,7 +47,7 @@ class ClientPhotoORMTest {
 
 	@Test
 	void testClientPhotoORMReturnedInJSONFormat() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 		clientPhoto.setId("a1");
 		clientPhoto.setIdType("cc");
 		clientPhoto.setIdValue("646464");
@@ -61,7 +61,7 @@ class ClientPhotoORMTest {
 
 	@Test
 	void testClientPhotoORMReturnedInStringFormat() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 		clientPhoto.setId("a1");
 		clientPhoto.setIdType("cc");
 		clientPhoto.setIdValue("646464");

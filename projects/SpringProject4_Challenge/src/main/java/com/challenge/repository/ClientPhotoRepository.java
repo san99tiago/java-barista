@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.challenge.model.ClientPhotoORM;
+import com.challenge.model.ClientPhotoDAO;
 
-public interface ClientPhotoRepository extends MongoRepository<ClientPhotoORM, String> {
+public interface ClientPhotoRepository extends MongoRepository<ClientPhotoDAO, String> {
 
 //	@Query("{ 'idType': ?0, 'idValue': ?1}")
-	List<ClientPhotoORM> findByIdTypeAndIdValue(String idType, String idValue);
+	List<ClientPhotoDAO> findByIdTypeAndIdValue(String idType, String idValue);
 
 }

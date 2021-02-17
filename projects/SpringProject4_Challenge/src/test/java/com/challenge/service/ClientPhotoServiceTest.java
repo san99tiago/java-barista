@@ -16,7 +16,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.challenge.model.ClientPhotoORM;
+import com.challenge.model.ClientPhotoDAO;
 import com.challenge.repository.ClientPhotoRepository;
 
 @SpringBootTest
@@ -47,7 +47,7 @@ class ClientPhotoServiceTest {
 	@Test
 	void addClientPhotoTest() {
 		// Create clientPhotoMockORM to simulate object's behavior
-		ClientPhotoORM clientPhotoMockORM = mock(ClientPhotoORM.class);
+		ClientPhotoDAO clientPhotoMockORM = mock(ClientPhotoDAO.class);
 		when(clientPhotoMockORM.getIdType()).thenReturn("cc");
 		when(clientPhotoMockORM.getIdValue()).thenReturn("1111");
 		when(clientPhotoMockORM.getPhoto()).thenReturn("not added");
@@ -59,14 +59,14 @@ class ClientPhotoServiceTest {
 	@Test
 	void addClientPhotoWithAlreadyExistingClientPhotoTest() {
 		// Create clientPhotoMockORM to simulate object's behavior
-		ClientPhotoORM clientPhotoMockORM = mock(ClientPhotoORM.class);
+		ClientPhotoDAO clientPhotoMockORM = mock(ClientPhotoDAO.class);
 		when(clientPhotoMockORM.getIdType()).thenReturn("cc");
 		when(clientPhotoMockORM.getIdValue()).thenReturn("1111");
 		when(clientPhotoMockORM.getPhoto()).thenReturn("not added");
 
 		// Create expected behavior for clientPhotoRepository when finding by id
 		// parameters
-		List<ClientPhotoORM> clientsWithIdParamsMock = new ArrayList<ClientPhotoORM>();
+		List<ClientPhotoDAO> clientsWithIdParamsMock = new ArrayList<ClientPhotoDAO>();
 		clientsWithIdParamsMock.add(clientPhotoMockORM);
 		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "1111")).thenReturn(clientsWithIdParamsMock);
 
@@ -77,14 +77,14 @@ class ClientPhotoServiceTest {
 	@Test
 	void updateClientPhotoTest() {
 		// Create clientPhotoMockORM to simulate object's behavior
-		ClientPhotoORM clientPhotoMockORM = mock(ClientPhotoORM.class);
+		ClientPhotoDAO clientPhotoMockORM = mock(ClientPhotoDAO.class);
 		when(clientPhotoMockORM.getIdType()).thenReturn("cc");
 		when(clientPhotoMockORM.getIdValue()).thenReturn("1111");
 		when(clientPhotoMockORM.getPhoto()).thenReturn("not added");
 
 		// Create expected behavior for clientPhotoRepository when finding by id
 		// parameters
-		List<ClientPhotoORM> clientPhotosWithIdParamsMock = new ArrayList<ClientPhotoORM>();
+		List<ClientPhotoDAO> clientPhotosWithIdParamsMock = new ArrayList<ClientPhotoDAO>();
 		clientPhotosWithIdParamsMock.add(clientPhotoMockORM);
 		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "1111")).thenReturn(clientPhotosWithIdParamsMock);
 
@@ -95,12 +95,12 @@ class ClientPhotoServiceTest {
 	@Test
 	void updateClientPhotoWithoutExistingClientPhotoTest() {
 		// Create clientPhotoMockORM to simulate object's behavior
-		ClientPhotoORM clientPhotoMockORM = mock(ClientPhotoORM.class);
+		ClientPhotoDAO clientPhotoMockORM = mock(ClientPhotoDAO.class);
 		when(clientPhotoMockORM.getIdType()).thenReturn("cc");
 		when(clientPhotoMockORM.getIdValue()).thenReturn("1111");
 		when(clientPhotoMockORM.getPhoto()).thenReturn("not added");
 
-		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "1111")).thenReturn(new ArrayList<ClientPhotoORM>());
+		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "1111")).thenReturn(new ArrayList<ClientPhotoDAO>());
 
 		clientPhotoService.updateClientPhoto(clientPhotoMockORM, "cc", "1111");
 		verify(clientPhotoRepository, never()).save(clientPhotoMockORM);
@@ -109,12 +109,12 @@ class ClientPhotoServiceTest {
 	@Test
 	void deleteClientPhotoTest() {
 		// Create clientPhotoMockORM to simulate object's behavior
-		ClientPhotoORM clientPhotoMockORM = mock(ClientPhotoORM.class);
+		ClientPhotoDAO clientPhotoMockORM = mock(ClientPhotoDAO.class);
 		when(clientPhotoMockORM.getId()).thenReturn("abcd1234");
 
 		// Create expected behavior for clientPhotoRepository when finding by id
 		// parameters
-		List<ClientPhotoORM> clientPhotosWithIdParamsMock = new ArrayList<ClientPhotoORM>();
+		List<ClientPhotoDAO> clientPhotosWithIdParamsMock = new ArrayList<ClientPhotoDAO>();
 		clientPhotosWithIdParamsMock.add(clientPhotoMockORM);
 		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "2222")).thenReturn(clientPhotosWithIdParamsMock);
 
@@ -124,7 +124,7 @@ class ClientPhotoServiceTest {
 
 	@Test
 	void deleteClientPhotoWithouExistingClientPhotoTest() {
-		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "2222")).thenReturn(new ArrayList<ClientPhotoORM>());
+		when(clientPhotoRepository.findByIdTypeAndIdValue("cc", "2222")).thenReturn(new ArrayList<ClientPhotoDAO>());
 
 		clientPhotoService.deleteClientPhotoByIdParams("cc", "2222");
 		verify(clientPhotoRepository, never()).deleteById("abcd1234");

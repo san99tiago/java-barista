@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.challenge.model.ClientPhotoORM;
+import com.challenge.model.ClientPhotoDAO;
 import com.challenge.repository.ClientPhotoRepository;
 
 @Service
@@ -14,32 +14,32 @@ public class ClientPhotoService {
 	@Autowired
 	private ClientPhotoRepository clientPhotoRepository;
 
-	public List<ClientPhotoORM> getClientPhotos() {
+	public List<ClientPhotoDAO> getClientPhotos() {
 		return clientPhotoRepository.findAll();
 	}
 
-	public List<ClientPhotoORM> getClientPhotoByIdParams(String idType, String idValue) {
+	public List<ClientPhotoDAO> getClientPhotoByIdParams(String idType, String idValue) {
 		return clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
 	}
 
-	public ClientPhotoORM addClientPhoto(ClientPhotoORM clientPhotoORM) {
-		List<ClientPhotoORM> clientsWithSameIdParams = clientPhotoRepository
-				.findByIdTypeAndIdValue(clientPhotoORM.getIdType(), clientPhotoORM.getIdValue());
+	public ClientPhotoDAO addClientPhoto(ClientPhotoDAO clientPhotoDAO) {
+		List<ClientPhotoDAO> clientsWithSameIdParams = clientPhotoRepository
+				.findByIdTypeAndIdValue(clientPhotoDAO.getIdType(), clientPhotoDAO.getIdValue());
 
 		if (clientsWithSameIdParams.size() == 0) {
-			return clientPhotoRepository.save(clientPhotoORM);
+			return clientPhotoRepository.save(clientPhotoDAO);
 		} else {
 			return null;
 		}
 
 	}
 
-	public ClientPhotoORM updateClientPhoto(ClientPhotoORM clientPhotoORM, String idType, String idValue) {
-		List<ClientPhotoORM> clientToEdit = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
+	public ClientPhotoDAO updateClientPhoto(ClientPhotoDAO clientPhotoDAO, String idType, String idValue) {
+		List<ClientPhotoDAO> clientToEdit = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
 
 		if (clientToEdit.size() > 0) {
-			clientPhotoORM.setId(clientToEdit.get(0).getId());
-			return clientPhotoRepository.save(clientPhotoORM);
+			clientPhotoDAO.setId(clientToEdit.get(0).getId());
+			return clientPhotoRepository.save(clientPhotoDAO);
 		} else {
 			return null;
 		}
@@ -47,7 +47,7 @@ public class ClientPhotoService {
 	}
 
 	public String deleteClientPhotoByIdParams(String idType, String idValue) {
-		List<ClientPhotoORM> clientToDelete = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
+		List<ClientPhotoDAO> clientToDelete = clientPhotoRepository.findByIdTypeAndIdValue(idType, idValue);
 
 		if (clientToDelete.size() > 0) {
 			clientPhotoRepository.deleteById(clientToDelete.get(0).getId());

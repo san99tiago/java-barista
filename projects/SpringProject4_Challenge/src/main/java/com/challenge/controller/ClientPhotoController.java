@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.challenge.model.ClientPhotoORM;
+import com.challenge.model.ClientPhotoDAO;
 import com.challenge.service.ClientPhotoService;
 
 import io.swagger.annotations.Api;
@@ -28,30 +28,30 @@ public class ClientPhotoController {
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "Get all clientPhotos.")
-	public List<ClientPhotoORM> getClientPhotos() {
+	public List<ClientPhotoDAO> getClientPhotos() {
 		return clientPhotoService.getClientPhotos();
 	}
 
 	@RequestMapping(value = "/idType/{idType}/idValue/{idValue}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "Get clientPhoto by ID parameters.", notes = "Both (idType) and (idValue) are mandatory.")
-	public List<ClientPhotoORM> getClientPhotoByIdParams(@PathVariable String idType, @PathVariable String idValue) {
+	public List<ClientPhotoDAO> getClientPhotoByIdParams(@PathVariable String idType, @PathVariable String idValue) {
 		return clientPhotoService.getClientPhotoByIdParams(idType, idValue);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "Add new clientPhoto.", notes = "If the clientPhto exists, it won't create duplicates.")
-	public ClientPhotoORM addClientPhoto(@RequestBody ClientPhotoORM clientPhotoORM) {
-		return clientPhotoService.addClientPhoto(clientPhotoORM);
+	public ClientPhotoDAO addClientPhoto(@RequestBody ClientPhotoDAO clientPhotoDAO) {
+		return clientPhotoService.addClientPhoto(clientPhotoDAO);
 	}
 
 	@RequestMapping(value = "/idType/{idType}/idValue/{idValue}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "Update existing clientPhoto by ID parameters.", notes = "If the clientPhoto doesn't exist, it won't create a new one.")
-	public ClientPhotoORM updateClientPhoto(@RequestBody ClientPhotoORM clientPhotoORM, @PathVariable String idType,
+	public ClientPhotoDAO updateClientPhoto(@RequestBody ClientPhotoDAO clientPhotoDAO, @PathVariable String idType,
 			@PathVariable String idValue) {
-		return clientPhotoService.updateClientPhoto(clientPhotoORM, idType, idValue);
+		return clientPhotoService.updateClientPhoto(clientPhotoDAO, idType, idValue);
 	}
 
 	@RequestMapping(value = "/idType/{idType}/idValue/{idValue}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
