@@ -15,7 +15,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.challenge.model.ClientPhotoORM;
+import com.challenge.model.ClientPhotoDAO;
 import com.challenge.service.ClientPhotoService;
 
 @SpringBootTest
@@ -30,9 +30,9 @@ class ClientPhotoControllerTest {
 
 	@Test
 	void getClientPhotosWithMultipleClientPhotosTest() {
-		List<ClientPhotoORM> clientPhotoPhotos = new ArrayList<ClientPhotoORM>();
-		clientPhotoPhotos.add(new ClientPhotoORM());
-		clientPhotoPhotos.add(new ClientPhotoORM());
+		List<ClientPhotoDAO> clientPhotoPhotos = new ArrayList<ClientPhotoDAO>();
+		clientPhotoPhotos.add(new ClientPhotoDAO());
+		clientPhotoPhotos.add(new ClientPhotoDAO());
 
 		when(clientPhotoPhotoService.getClientPhotos()).thenReturn(clientPhotoPhotos);
 		assertEquals(clientPhotoPhotos.get(0), clientPhotoPhotoController.getClientPhotos().get(0));
@@ -42,14 +42,14 @@ class ClientPhotoControllerTest {
 
 	@Test
 	void getClientPhotosWithoutAnyClientPhotosTest() {
-		when(clientPhotoPhotoService.getClientPhotos()).thenReturn(new ArrayList<ClientPhotoORM>());
+		when(clientPhotoPhotoService.getClientPhotos()).thenReturn(new ArrayList<ClientPhotoDAO>());
 		assertEquals(0, clientPhotoPhotoController.getClientPhotos().size());
 		verify(clientPhotoPhotoService).getClientPhotos();
 	}
 
 	@Test
 	void addClientPhotoTest() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 		clientPhoto.setIdType("cc");
 		clientPhoto.setIdValue("1919");
 		clientPhoto.setPhoto("image101");
@@ -61,7 +61,7 @@ class ClientPhotoControllerTest {
 
 	@Test
 	void addClientPhotoThatAlreadyExistsTest() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 		clientPhoto.setIdType("cc");
 		clientPhoto.setIdValue("1919");
 		clientPhoto.setPhoto("image101");
@@ -73,7 +73,7 @@ class ClientPhotoControllerTest {
 
 	@Test
 	void updateClientPhotoTest() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 		clientPhoto.setIdType("cc");
 		clientPhoto.setIdValue("3322");
 		clientPhoto.setPhoto("image387");
@@ -86,7 +86,7 @@ class ClientPhotoControllerTest {
 
 	@Test
 	void updateClientPhotoThatDoesNotExistTest() {
-		ClientPhotoORM clientPhoto = new ClientPhotoORM();
+		ClientPhotoDAO clientPhoto = new ClientPhotoDAO();
 		clientPhoto.setIdType("cc");
 		clientPhoto.setIdValue("9010");
 		clientPhoto.setPhoto("image387");
