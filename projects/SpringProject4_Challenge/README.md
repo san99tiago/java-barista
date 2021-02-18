@@ -1,11 +1,11 @@
 # Backend Java-Spring Challenge
 
-Author: Santiago Garcia Tech
-Created: Feb 17, 2021 6:12 PM
-Done: Yes
-Link: https://github.com/san99tiago/LEARNING_JAVA
-Platform: Github
-Topic: Spring
+Author: Santiago Garcia Tech<br>
+Created: Feb 17, 2021 6:12 PM<br>
+Done: Yes<br>
+Link: https://github.com/san99tiago/LEARNING_JAVA<br>
+Platform: Github<br>
+Topic: Spring<br>
 
 # Challenge Requirements
 
@@ -78,5 +78,3 @@ We can create, design and implement any architecture based on what we consider t
 Santiago Garcia Arango
 
 ---
-
-[Multiple Markdown Things](https://www.notion.so/045ff0737c9741e98098bc0c5d1f2694)
