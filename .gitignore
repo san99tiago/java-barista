@@ -9,6 +9,7 @@
 *.tar.gz
 hs_err_pid*
 *.log
+.idea
 
 ## Eclipse ignores
 .settings/
